@@ -38,15 +38,15 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::middleware('auth','role:admin')->group(function () {
-    Route::get('admin/dashboard',[AdminController::class,'index'])->name('index');
+    Route::get('admindashboard',[AdminController::class,'index'])->name('admin');
 });
 
 Route::middleware('auth','role:supplier')->group(function () {
     
-    Route::get('supplier/dashboard',[SupplierController::class,'index'])->name('index');
+    Route::get('supplierdashboard',[SupplierController::class,'index'])->name('supplier');
     
 });
 
 Route::middleware('auth','role:staff')->group(function () {
-    Route::get('staff/dashboard',[StaffController::class,'index'])->name('index');
+    Route::get('staffdashboard',[StaffController::class,'index'])->name('staff');
 });
